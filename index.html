@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./assets/style/style.css" />
+		<link rel="stylesheet" href="./assets/style/fonts.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<title>GoTrip</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<header class="header">
+				<nav class="nav">
+					<div class="container nav__content">
+						<a href="#" class="nav__logo"
+							><img src="./assets/images/go-trip-logo.svg" alt=""
+						/></a>
+						<ul class="nav__list">
+							<li v-for="(link,index) in links" :key="index">
+								<a href="#" class="nav__list-link"> {{ link.title }} </a>
+							</li>
+						</ul>
+						<div class="nav__search">
+							<input type="text" placeholder="Поиск" />
+							<button>Search</button>
+						</div>
+					</div>
+				</nav>
+				<div class="header__content">
+					<h1 class="header__title">GoTrip</h1>
+					<h2 class="header__subtitle">travel comfortably with us</h2>
+					<a href="#" class="header__btn">More</a>
+				</div>
+			</header>
+			<main class="main">
+				<section class="about__us">
+					<h1 class="about__us-title">About us</h1>
+					<div class="container about__us-content">
+						<img src="./assets/images/pic1.png" alt="" />
+						<div class="about__us-text">
+							<p class="about__us-descr">
+								Go trip - a store for lovers of outdoor activities. Here you
+								will find everything you need for a safe trip to nature,
+								climbing mountains and much more. We have been working since
+								2003, we provide everything necessary for large expeditions,
+								small groups of tourists, as well as those who just like to
+								travel in comfort.
+							</p>
+							<p class="about__us-descr">
+								Safety is above all! Before you go hiking, you need to protect
+								yourself from injury, overheating or frostbite, which is why
+								special equipment is needed.
+							</p>
+						</div>
+					</div>
+				</section>
+				<section class="catalog">
+					<h1 class="about__us-title catalog__title">Catalog</h1>
+					<div class="container catalog__content">
+						<div class="catalog__items">
+							<div v-for="(item,index) in item" class="catalog__item">
+								<img src="./assets/images/11.png" alt="" />
+								<h3 class="catalog__item-title">{{item.title}}</h3>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="contacts">
+					<h1 class="container about__us-title contacts__title">Contacts</h1>
+					<div class="container contacts__content">
+						<p class="contacts__descr">
+							Сontact us for details of product availability, you can also
+							arrange delivery.
+						</p>
+
+						<div class="contacts__text">
+							<a class="contacts__number">+4447 5566 2454</a>
+							<a class="contacts__number">gotrip@gmail.com</a>
+						</div>
+					</div>
+				</section>
+			</main>
+			<footer class="footer">
+				<div class="footer__content">
+					<ul class="nav__list footer__list">
+						<li v-for="(link,index) in links" :key="index">
+							<a href="#" class="nav__list-link"> {{ link.title }} </a>
+						</li>
+					</ul>
+					<p class="footer__descr">
+						All rigts reserved 2022
+					</p>
+				</div>
+			</footer>
+		</div>
+		<script>
+			const app = {
+				data() {
+					return {
+						links: [
+							{
+								to: '!#',
+								title: 'About us',
+							},
+							{
+								to: '!#',
+								title: 'Catalog',
+							},
+							{
+								to: '!#',
+								title: 'Contacts',
+							},
+						],
+						item: [
+							{
+								title: 'Сlothes',
+							},
+							{
+								title: 'Сlothes',
+							},
+							{
+								title: 'Сlothes',
+							},
+							{
+								title: 'Сlothes',
+							},
+						],
+					}
+				},
+			}
+			Vue.createApp(app).mount('#app')
+		</script>
+	</body>
+</html>
